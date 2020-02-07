@@ -1,0 +1,9 @@
+E:\C# Work\WPFineCalc5\bin\Debug\WPFineCalc5.exe.config
+E:\C# Work\WPFineCalc5\bin\Debug\WPFineCalc5.exe
+E:\C# Work\WPFineCalc5\bin\Debug\WPFineCalc5.pdb
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.csprojAssemblyReference.cache
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.Form1.resources
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.Properties.Resources.resources
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.csproj.GenerateResource.cache
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.exe
+E:\C# Work\WPFineCalc5\obj\Debug\WPFineCalc5.pdb
