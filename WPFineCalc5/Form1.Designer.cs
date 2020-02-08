@@ -1,4 +1,4 @@
-﻿namespace WPFineCalc5
+namespace WPFineCalc5
 {
     partial class Form1
     {
@@ -44,7 +44,6 @@
             this.copyFineCode = new System.Windows.Forms.Button();
             this.clearCalcButton = new System.Windows.Forms.Button();
             this.chargesBox = new System.Windows.Forms.ListBox();
-            this.CServiceTB = new System.Windows.Forms.TextBox();
             this.HelpButton = new System.Windows.Forms.Button();
             this.CopyButtonTimer = new System.Windows.Forms.Timer(this.components);
             this.ClearTimer = new System.Windows.Forms.Timer(this.components);
@@ -56,12 +55,14 @@
             this.SecretLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.CServiceTB = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.userIDBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FineTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CServiceTB)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -222,16 +223,6 @@
             this.chargesBox.TabIndex = 17;
             this.chargesBox.TabStop = false;
             // 
-            // CServiceTB
-            // 
-            this.CServiceTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CServiceTB.Location = new System.Drawing.Point(824, 391);
-            this.CServiceTB.Name = "CServiceTB";
-            this.CServiceTB.ReadOnly = true;
-            this.CServiceTB.Size = new System.Drawing.Size(106, 20);
-            this.CServiceTB.TabIndex = 19;
-            this.CServiceTB.TabStop = false;
-            // 
             // HelpButton
             // 
             this.HelpButton.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -264,7 +255,7 @@
             0});
             this.FineTB.Location = new System.Drawing.Point(824, 363);
             this.FineTB.Maximum = new decimal(new int[] {
-            100000,
+            75000,
             0,
             0,
             0});
@@ -339,6 +330,26 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "WP SASP Fine Calculator";
             // 
+            // CServiceTB
+            // 
+            this.CServiceTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CServiceTB.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.CServiceTB.Location = new System.Drawing.Point(824, 392);
+            this.CServiceTB.Maximum = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            this.CServiceTB.Name = "CServiceTB";
+            this.CServiceTB.ReadOnly = true;
+            this.CServiceTB.Size = new System.Drawing.Size(106, 20);
+            this.CServiceTB.TabIndex = 30;
+            this.CServiceTB.ValueChanged += new System.EventHandler(this.CServiceTB_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,13 +357,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::WPFineCalc5.Properties.Resources.background1;
             this.ClientSize = new System.Drawing.Size(942, 450);
+            this.Controls.Add(this.CServiceTB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.FineTB);
             this.Controls.Add(this.SecretLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.HelpButton);
-            this.Controls.Add(this.CServiceTB);
             this.Controls.Add(this.chargesBox);
             this.Controls.Add(this.clearCalcButton);
             this.Controls.Add(this.copyFineCode);
@@ -382,6 +393,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FineTB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CServiceTB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,7 +414,6 @@
         private System.Windows.Forms.Button copyFineCode;
         private System.Windows.Forms.Button clearCalcButton;
         private System.Windows.Forms.ListBox chargesBox;
-        private System.Windows.Forms.TextBox CServiceTB;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Timer CopyButtonTimer;
         private System.Windows.Forms.Timer ClearTimer;
@@ -414,6 +425,7 @@
         private System.Windows.Forms.Label SecretLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown CServiceTB;
     }
 }
 
