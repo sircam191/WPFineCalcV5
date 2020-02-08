@@ -4,6 +4,9 @@ This is a Windows Forms application written in C# for calculating jail times, fi
 
 For more information on the FiveM server that this program is made for check out the [website](https://www.thewackpackrp.com/) or [Discord server](https://discord.me/thewackpack). 
 
+
+![AppScreenShot](https://i.gyazo.com/b3aaf50369b94cd7d3787ef9c3d6e7c7.png)
+
 ## Installation
 
 To run the program use the ``WPFineCalc5.exe`` in the ``bin\Release`` directory.
