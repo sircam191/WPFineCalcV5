@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +29,7 @@ namespace WPFineCalc5
 
         public Form1()
         {
-           
             InitializeComponent();
-            
         }
 
        
@@ -91,11 +89,12 @@ namespace WPFineCalc5
             if (timeSum > Form1.maxTasks)
             {
                 timeSum = Form1.maxTasks;
-                CServiceTB.Text = $"{timeSum} tasks";
+                CServiceTB.Value = timeSum;
+                timeSum = Form1.maxTasks;
             }
 
             FineTB.Value = fineSum;
-            CServiceTB.Text = $"{timeSum} tasks";
+            CServiceTB.Value = timeSum;
         }
         private void clearCalcButton_Click(object sender, EventArgs e)
         {
@@ -106,9 +105,8 @@ namespace WPFineCalc5
             chargesBox.Items.Clear();
             chargesBox.Items.Add("No Charges Selected");
             FineTB.Value = 0;
-            CServiceTB.Text = "";
+            CServiceTB.Value = 0;
             userIDBox.Value = 0;
-            CServiceTB.Text = $"{timeSum} tasks";
 
             while (MovingViolationListBox.CheckedIndices.Count > 0)
                 MovingViolationListBox.SetItemChecked(MovingViolationListBox.CheckedIndices[0], false);
@@ -152,9 +150,17 @@ namespace WPFineCalc5
             {
                 MessageBox.Show("Fine Cannot Be $0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
-            else
+            else if (timeSum == 0)
             {
                 System.Windows.Forms.Clipboard.SetText("/fine " + userID + " " + fineSum + " " + charges.TrimEnd(',', ' ') + " || ISSUED: " + DateTime.Now.ToString("M/d/yyyy"));
+                copyFineCode.BackColor = Color.LimeGreen;
+                copyFineCode.Text = "Copied Fine Code!";
+                CopyButtonTimer.Start();
+                timeLeft = 3;
+                charges = " ";
+            } else
+            {
+                System.Windows.Forms.Clipboard.SetText("/fine " + userID + " " + fineSum + " " + charges.TrimEnd(',', ' ') + " || Tasks: " + timeSum + " || ISSUED: " + DateTime.Now.ToString("M/d/yyyy"));
                 copyFineCode.BackColor = Color.LimeGreen;
                 copyFineCode.Text = "Copied Fine Code!";
                 CopyButtonTimer.Start();
@@ -225,12 +231,13 @@ namespace WPFineCalc5
             if (timeSum > Form1.maxTasks)
             {
                 timeSum = Form1.maxTasks;
-                CServiceTB.Text = $"{timeSum} tasks";
+                timeSum = Form1.maxTasks;
+                CServiceTB.Value = timeSum;
             }
 
 
             FineTB.Value = fineSum;
-            CServiceTB.Text = $"{timeSum} tasks";
+            CServiceTB.Value = timeSum;
         }
 
 
@@ -306,7 +313,7 @@ namespace WPFineCalc5
 
             chargesBox.Items.Add("No Charges Selected");
             FineTB.Value = 0;
-            CServiceTB.Text = $"{timeSum} tasks";
+            CServiceTB.Value = timeSum;
 
             MovingViolationListBox.EndUpdate();
             MisdemeanorsListBox.EndUpdate();
@@ -398,12 +405,13 @@ namespace WPFineCalc5
             if (timeSum > Form1.maxTasks)
             {
                 timeSum = Form1.maxTasks;
-                CServiceTB.Text = $"{timeSum} tasks";
+                timeSum = Form1.maxTasks;
+                CServiceTB.Value = timeSum;
             }
 
 
             FineTB.Value = fineSum;
-            CServiceTB.Text = $"{timeSum} tasks";
+            CServiceTB.Value = timeSum;
 
         }
 
@@ -469,6 +477,10 @@ namespace WPFineCalc5
             this.BackgroundImage = Properties.Resources.trippy;
             MessageBox.Show("Wow you found a secret button!\n\nWell done give yourself a pat on the back.\n\n Okay time to get back to work trooper!", "Secret Button", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-    
+
+        private void CServiceTB_ValueChanged(object sender, EventArgs e)
+        {
+            timeSum = Convert.ToInt32(CServiceTB.Value);
+        }
     }
 }
